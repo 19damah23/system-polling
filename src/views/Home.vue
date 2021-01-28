@@ -4,7 +4,7 @@
       <h3 class="give-your-vote">Give your vote of our services</h3>
 
       <div class="emoticons">
-        //Ini akan menjadi element vote
+        <Vote />
       </div>
     </section>
 
@@ -17,10 +17,13 @@
 <script>
 // @ is an alias to /src
 // import HelloWorld from "@/components/HelloWorld.vue";
+import Vote from "@/components/Vote.vue";
 
 export default {
   name: "Home",
-  components: {}
+  components: {
+    Vote
+  }
 };
 </script>
 
