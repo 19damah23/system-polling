@@ -28,14 +28,23 @@ export default {
 </script>
 
 <style>
-  .container {
-    display: flex;
-    flex-wrap: wrap;
-    height: 100vh;
-    align-items: center;
-  }
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  height: 100vh;
+  align-items: center;
+}
 
-  section {
-    width: 100%;
-  }
+section {
+  width: 100%;
+}
+
+.give-your-vote {
+  font-size: 23px;
+}
+
+.finish {
+  position: absolute;
+  bottom: 20px;
+}
 </style>
