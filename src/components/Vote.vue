@@ -32,11 +32,17 @@ export default {
   methods: {
     vote(e) {
       let voted = e.target.value;
-
-      let time = Moment().format('YYYY-MM-DD h:mm:ss');
-      console.log(time);
+      let keyStorage = Moment().format('YYYYMMDDhmmss');
+      let created_at = Moment().format('YYYY-MM-DD h:mm:ss');
       
-      localStorage.setItem('vote', voted);
+      const data = {
+        vote: voted,
+        created_at: created_at
+      }
+
+      let jsonToString = JSON.stringify(data);
+      
+      localStorage.setItem(keyStorage, jsonToString);
     }
   }
 };
