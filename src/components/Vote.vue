@@ -29,15 +29,13 @@ export default {
         'good',
         'very-good'
       ],
-      isDisable: false,
-      emoticonClick: false
+      emoticonClick : ''
     }
   },
   methods: {
     vote(e) {
       let voted = e.target.value;
 
-      this.isDisable =  true;
       this.emoticonClick = voted;
       
       let keyStorage = Moment().format('YYYYMMDDhmmss');
@@ -49,8 +47,13 @@ export default {
       }
 
       let jsonToString = JSON.stringify(data);
-      
+
       localStorage.setItem(keyStorage, jsonToString);
+    }
+  },
+  computed:{
+    isDisable : function() {
+      return this.emoticonClick.length === 0 ? false : true;
     }
   }
 };
