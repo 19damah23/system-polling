@@ -5,6 +5,7 @@
       :id="emoticon"
       :value="emoticon"
       :disabled="isDisable"
+      :class="{active: emoticon == emoticonClick}"
       @click="vote"
       class="btn-emoticon">
     </button>
@@ -28,13 +29,17 @@ export default {
         'good',
         'very-good'
       ],
-      isDisable: false
+      isDisable: false,
+      emoticonClick: false
     }
   },
   methods: {
     vote(e) {
-      this.isDisable =  true;
       let voted = e.target.value;
+
+      this.isDisable =  true;
+      this.emoticonClick = voted;
+      
       let keyStorage = Moment().format('YYYYMMDDhmmss');
       let created_at = Moment().format('YYYY-MM-DD h:mm:ss');
       
@@ -74,7 +79,8 @@ export default {
     background-position: 0 -100px;
   }
 
-  #very-bad:active {
+  #very-bad:active,
+  #very-bad.active {
     background-position: 0 -200px;
   }
 
@@ -86,7 +92,8 @@ export default {
     background-position: -101px -100px;
   }
 
-  #bad:active {
+  #bad:active,
+  #bad.active {
     background-position: -101px -200px;
   }
 
@@ -98,7 +105,8 @@ export default {
     background-position: -202px -100px;
   }
 
-  #ok:active {
+  #ok:active,
+  #ok.active {
     background-position: -202px -200px;
   }
 
@@ -110,7 +118,8 @@ export default {
     background-position: -303px -100px;
   }
 
-  #good:active {
+  #good:active,
+  #good.active {
     background-position: -303px -200px;
   }
 
@@ -122,7 +131,8 @@ export default {
     background-position: -404px -100px;
   }
 
-  #very-good:active {
+  #very-good:active,
+  #very-good.active {
     background-position: -404px -200px;
   }
 </style>
